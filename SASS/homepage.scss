@@ -1,0 +1,304 @@
+/* Mixins */
+@import "mixins";
+@import "variables";
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: "Roboto", sans-serif;
+}
+
+/* Loader */
+
+.loader {
+   position: fixed;
+   z-index: 10;
+   width: 100%;
+   height: 100vh; // Pleine hauteur de la fenêtre
+   background: $degrade-color;
+   @include center;
+   animation: flash 3s ease forwards;
+
+   .loading {
+      color: #F2F2F2;
+      text-shadow: 0 0 10px $shadow-color;
+      font-size: 20px;
+      letter-spacing: 10px;
+      animation: wave 2s infinite; // Mouvements du texte
+   }
+}
+
+@keyframes flash {
+   90% {
+      opacity: 1;
+   }
+
+   100% {
+      opacity: 0;
+      display: none;
+   }
+}
+
+@keyframes wave {
+   0% {
+      transform: translateX(0); // Position d'origine
+   }
+
+   25% {
+      transform: translateX(10px); // Déplacez vers la droite
+   }
+
+   50% {
+      transform: translateX(0px);
+   }
+
+   75% {
+      transform: translateX(10px);
+   }
+
+   100% {
+      transform: translateX(0px);
+   }
+}
+
+
+/* main */
+
+.main__location {
+   background-color: #eaeaea;
+   @include center;
+   padding: 20px;
+
+   i {
+      margin-right: 10px;
+   }
+
+   p {
+      font-weight: 500;
+   }
+}
+
+
+.main__description {
+   flex-direction: column;
+   padding: 30px;
+   text-align: center;
+   background-color: $background-color;
+   @include center;
+
+   &--text {
+      font-weight: 300;
+      margin: 20px 0 20px 0;
+   }
+
+   &--btn {
+      @include style-btn;
+      box-shadow: 0 2px 8px $shadow-color;
+
+      &:hover {
+         @include hover-btn;
+      }
+   }
+}
+
+
+.main__process {
+   @include center;
+   flex-direction: column;
+   padding: 3.125rem 1.25rem 2.5rem;
+   width: 100%;
+   max-width: 1440px;
+   margin: auto;
+
+   h2 {
+      align-self: flex-start;
+      margin-bottom: 20px;
+   }
+
+   @media screen and (min-width: 1040px) {
+
+      justify-content: space-around;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      h2 {
+         width: 100%;
+      }
+
+   }
+
+   &--choice {
+      width: 100%;
+      max-width: 40rem;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      flex-direction: row-reverse;
+      cursor: pointer;
+      position: relative;
+      background-color: $background-color;
+      border-radius: 1rem;
+      margin-bottom: 30px;
+      padding: 20px 0;
+      box-shadow: 0px 4px 10px 0px $shadow-color;
+
+      p {
+         padding-left: 30px;
+      }
+
+      i {
+         margin-right: 10px;
+         color: #7E7E7E;
+      }
+
+      div {
+         width: 30px;
+         height: 30px;
+         @include center;
+         position: absolute;
+         border-radius: 50%;
+         background-color: $main-color;
+         color: #fff;
+         left: -0.7rem;
+      }
+
+      &:hover div {
+
+         -webkit-text-fill-color: white;
+      }
+
+      &:hover,
+      &:active {
+         transition: all 0.4s ease-in-out;
+         background-clip: text;
+         -webkit-background-clip: text;
+         -webkit-text-fill-color: $main-color;
+      }
+
+
+      @media screen and (min-width: 1040px) {
+         max-width: 30%;
+      }
+   }
+}
+
+
+.main__restaurant {
+   padding: 3.125rem 1.25rem 2.5rem;
+   background-color: $background-color;
+
+   h2 {
+      margin-bottom: 10px;
+      width: 100%;
+      max-width: 1440px;
+      margin: auto;
+   }
+
+   .card {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem 8rem;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 125rem;
+
+      &--restaurant {
+         width: 100%;
+         max-width: 40rem;
+         height: 18rem;
+         border-radius: 1.5rem;
+         overflow: hidden;
+         margin: 1rem 0;
+         color: #000;
+         box-shadow: 0px 4px 10px 0px $shadow-color;
+         cursor: pointer;
+      }
+
+      .news {
+         position: relative;
+
+         &::before {
+            content: "Nouveau";
+            position: absolute;
+            background-color: $tertiary-color;
+            color: $news-color;
+            @include center;
+            top: 10px;
+            right: 10px;
+            border-radius: 0.2rem;
+            padding: 6px;
+         }
+
+      }
+
+      &__info {
+         display: flex;
+         flex-direction: row;
+         justify-content: space-between;
+         height: 30%;
+         padding: 0 10px;
+         flex-wrap: nowrap;
+         align-items: center;
+
+         h3 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+         }
+
+         a {
+            width: 90%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+         }
+
+         &--txt {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+         }
+
+         &--like {
+            width: 10%;
+            height: 100%;
+            display: flex;
+         }
+
+         &--heart {
+            @include center;
+            width: 100%;
+            height: 100%;
+            font-size: 2rem;
+
+            &::before {
+               @include heart;
+            }
+
+            &::after {
+               @include heart;
+               @include solid-heart;
+            }
+
+            &:hover::before {
+               color: transparent;
+            }
+
+            &:hover::after {
+               font-weight: 900;
+               opacity: 1;
+            }
+
+         }
+      }
+   }
+
+   a figure {
+      height: 70%;
+      @include center;
+   }
+}

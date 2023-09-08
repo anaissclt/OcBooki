@@ -1,0 +1,15 @@
+//couleurs 
+
+$main-color: #9356dc;
+$main-light: #a872e3;
+$secondary-color: #FF79DA;
+$secondary-light: #ff92e0;
+$degrade-color:linear-gradient(to top left, $main-color, $secondary-color 80%);
+$degrade-light: linear-gradient(to top left, $main-light, $secondary-light 80%);
+
+$shadow-color: #00000040;
+
+$footer-color: #353535;
+$news-color: #008766;
+$tertiary-color: #99E2D0;
+$background-color: #f6f6f6;

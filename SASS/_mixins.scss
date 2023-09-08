@@ -1,0 +1,52 @@
+// @include center;
+
+@mixin center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+// @include style-btn;
+
+@mixin style-btn {
+    padding: 12px 30px;
+    background: $degrade-color;
+    cursor: pointer;
+    color: white;
+    font-weight: 400;
+    border-radius: 30px;
+    transition: all 0.5s ease-in-out;
+    border: none;
+}
+
+
+// @include hover-btn;
+
+@mixin hover-btn{
+    background: $degrade-light;
+    box-shadow: 2px 2px 2px 2px $shadow-color ;
+}
+
+
+
+// @include heart;
+
+@mixin heart {
+    position: absolute;
+    transition: all 0.8s ease-in-out;
+}
+
+
+// @include solid-heart;
+
+@mixin solid-heart{
+    content: '\f004'; 
+    font-family: "Font Awesome 5 Free";
+    background: $degrade-color;
+    background-clip: text; //fond appliqué à la zone texte
+     -webkit-text-fill-color: transparent;    // couleur de remplissage du texte 
+    opacity: 0;
+    cursor: pointer;
+    font-size: 2rem;
+}

@@ -1,0 +1,228 @@
+@charset "UTF-8";
+/* Mixins et variables */
+.main__background {
+  max-height: 30vh;
+}
+
+.header {
+  position: relative;
+}
+.header__return {
+  position: absolute;
+  left: 5%;
+  padding: 5px;
+}
+.header__return i {
+  font-size: 25px;
+}
+
+.main__menu {
+  background-color: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+  max-width: 1024px;
+  border-radius: 4rem 4rem 0 0;
+  margin: auto;
+  margin-top: -60px;
+  gap: 40px;
+}
+@media screen and (min-width: 768px) {
+  .main__menu {
+    padding: 0px 10%;
+  }
+}
+.main__menu--title {
+  font-size: 30px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  font-family: "Shrikhand", cursive;
+  font-weight: 300;
+  padding: 0 1rem;
+  margin-top: 3rem;
+  width: 100%;
+  justify-content: space-between;
+  border-radius: 4rem 4rem 0 0;
+  background-color: #f6f6f6;
+}
+@media screen and (min-width: 768px) {
+  .main__menu--title {
+    justify-content: center;
+    gap: 25px;
+  }
+}
+.main__menu--title--heart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 20px;
+  font-size: 2rem;
+}
+.main__menu--title--heart::before {
+  position: absolute;
+  transition: all 0.8s ease-in-out;
+}
+.main__menu--title--heart::after {
+  position: absolute;
+  transition: all 0.8s ease-in-out;
+  content: "\f004";
+  font-family: "Font Awesome 5 Free";
+  background: linear-gradient(to top left, #9356dc, #FF79DA 80%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  cursor: pointer;
+  font-size: 2rem;
+}
+.main__menu--title--heart:hover::before {
+  color: transparent;
+}
+.main__menu--title--heart:hover::after {
+  font-weight: 900;
+  opacity: 1;
+}
+.main__menu--entrance, .main__menu--dishes, .main__menu--dessert {
+  padding: 0 10px;
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .main__menu--entrance, .main__menu--dishes, .main__menu--dessert {
+    width: 100%;
+    max-width: 60rem;
+  }
+}
+.main__menu--entrance h3, .main__menu--dishes h3, .main__menu--dessert h3 {
+  font-size: 22px;
+  text-transform: uppercase;
+  position: relative;
+  margin-bottom: 2rem;
+  padding-left: 0.5rem;
+  font-weight: 300;
+}
+.main__menu--entrance h3::before, .main__menu--dishes h3::before, .main__menu--dessert h3::before {
+  content: "";
+  position: absolute;
+  bottom: -0.5rem;
+  width: 3rem;
+  height: 0.25rem;
+  background-color: #99E2D0;
+}
+.main__menu--btn {
+  padding: 12px 30px;
+  background: linear-gradient(to top left, #9356dc, #FF79DA 80%);
+  cursor: pointer;
+  color: white;
+  font-weight: 400;
+  border-radius: 30px;
+  transition: all 0.5s ease-in-out;
+  border: none;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2509803922);
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+.main__menu--btn:hover {
+  background: linear-gradient(to top left, #a872e3, #ff92e0 80%);
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2509803922);
+}
+
+.meal {
+  display: flex;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2509803922);
+  border-radius: 1.25rem;
+  background-color: #ffffff;
+  margin: 15px;
+  max-width: 40rem;
+  overflow: hidden;
+}
+.meal--description {
+  font-size: 20px;
+  width: 100%;
+  padding: 8px;
+  margin: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.meal--description p {
+  font-weight: 100;
+  font-size: smaller;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.meal--description h4 {
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.meal--price {
+  font-size: 20px;
+  font-weight: 500;
+  margin-left: auto;
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 10px 20px 10px 0;
+}
+.meal--check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: -65px;
+  width: 65px;
+  padding: 0 0.9375rem;
+  background-color: #99E2D0;
+  transition: margin-right 0.4s ease-in-out;
+}
+.meal--check::after {
+  content: "\f00c";
+  font-family: "FontAwesome";
+  padding: 5px;
+  border-radius: 50%;
+  color: #99E2D0;
+  font-size: 15px;
+  background-color: #fff;
+  transition: transform 0.4s ease-in-out;
+}
+.meal:hover .meal--check, .meal:active .meal--check {
+  margin-right: 0;
+}
+.meal:hover .meal--check::after, .meal:active .meal--check::after {
+  transform: rotate(360deg);
+}
+
+.main__menu--entrance,
+.main__menu--dishes,
+.main__menu--dessert {
+  opacity: 0;
+}
+
+/* Animation pour faire apparaître avec délai */
+.main__menu--entrance {
+  animation: appear 1s both 1s;
+}
+
+.main__menu--dishes {
+  animation: appear 1s both 2s;
+}
+
+.main__menu--dessert {
+  animation: appear 1s both 3s;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    /* Décalage vers le bas */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}/*# sourceMappingURL=menu.css.map */
